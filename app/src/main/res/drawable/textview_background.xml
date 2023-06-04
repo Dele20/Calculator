@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="50dp" />
+    <solid android:color="#FFFFFF" /> <!-- Set the desired background color for the TextView -->
+    <stroke android:color="@color/purple_500" android:width="4dp" /> <!-- Set the desired line color and thickness -->
+</shape>
