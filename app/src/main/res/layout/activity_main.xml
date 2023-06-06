@@ -17,21 +17,50 @@
             app:layout_constraintHorizontal_bias="0.1"
 
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent">
+        <TableRow android:layout_height="match_parent">
+            <Button
+                    android:text="√"
+                    android:textSize="20dp"
+                    android:layout_width="50dp"
+                    android:layout_margin="3.5dp"
+                    android:layout_height="48dp" android:id="@+id/button20"
+                    tools:layout_editor_absoluteY="421dp"
+                    tools:layout_editor_absoluteX="30dp"/>
+            <Button
+                    android:text="^"
+                    android:textSize="20dp"
+                    android:layout_width="50dp"
+                    android:layout_margin="3.5dp"
+                    android:layout_height="48dp" android:id="@+id/button21"
+                    tools:layout_editor_absoluteY="421dp"
+                    tools:layout_editor_absoluteX="88dp"/>
+            <Button
+                    android:text="%"
+                    android:textSize="20dp"
+                    android:layout_width="50dp"
+                    android:layout_margin="3.5dp"
+                    android:layout_height="48dp" android:id="@+id/button22"
+                    tools:layout_editor_absoluteY="421dp"
+                    tools:layout_editor_absoluteX="146dp"/>
+        </TableRow>
         <TableRow android:layout_height="293dp"> <!--android:layout_width="match_parent"-->
             <Button
-                    android:text="Button"
+                    android:text="9"
+                    android:textSize="20dp"
                     android:layout_width="50dp"
                     android:layout_margin="3.5dp"
                     android:layout_height="48dp" android:id="@+id/button1"
                     tools:layout_editor_absoluteY="592dp" tools:layout_editor_absoluteX="30dp"/>
             <Button
-                    android:text="Button"
+                    android:text="8"
+                    android:textSize="20dp"
                     android:layout_width="50dp"
                     android:layout_margin="3.5dp"
                     android:layout_height="48dp" android:id="@+id/button2" tools:layout_editor_absoluteY="592dp"
                     tools:layout_editor_absoluteX="88dp"/>
             <Button
-                    android:text="Button"
+                    android:text="7"
+                    android:textSize="20dp"
                     android:layout_width="50dp"
                     android:layout_margin="3.5dp"
                     android:layout_height="48dp" android:id="@+id/button3" tools:layout_editor_absoluteY="592dp"
@@ -41,19 +70,22 @@
 
 
             <Button
-                    android:text="Button"
+                    android:text="6"
+                    android:textSize="20dp"
                     android:layout_width="50dp"
                     android:layout_margin="3.5dp"
                     android:layout_height="48dp" android:id="@+id/button4"
                     tools:layout_editor_absoluteY="535dp" tools:layout_editor_absoluteX="30dp"/>
             <Button
-                    android:text="Button"
+                    android:text="5"
+                    android:textSize="20dp"
                     android:layout_width="50dp"
                     android:layout_margin="3.5dp"
                     android:layout_height="48dp" android:id="@+id/button5"
                     tools:layout_editor_absoluteY="535dp" tools:layout_editor_absoluteX="88dp"/>
             <Button
-                    android:text="Button"
+                    android:text="4"
+                    android:textSize="20dp"
                     android:layout_width="50dp"
                     android:layout_margin="3.5dp"
                     android:layout_height="48dp" android:id="@+id/button6"
@@ -61,19 +93,22 @@
         </TableRow>
         <TableRow>
             <Button
-                    android:text="Button"
+                    android:text="3"
+                    android:textSize="20dp"
                     android:layout_width="50dp"
                     android:layout_margin="3.5dp"
                     android:layout_height="48dp" android:id="@+id/button7"
                     tools:layout_editor_absoluteY="473dp" tools:layout_editor_absoluteX="30dp"/>
             <Button
-                    android:text="Button"
+                    android:text="2"
+                    android:textSize="20dp"
                     android:layout_width="50dp"
                     android:layout_margin="3.5dp"
                     android:layout_height="48dp" android:id="@+id/button8"
                     tools:layout_editor_absoluteY="473dp" tools:layout_editor_absoluteX="88dp"/>
             <Button
-                    android:text="Button"
+                    android:text="1"
+                    android:textSize="20dp"
                     android:layout_width="50dp"
                     android:layout_margin="3.5dp"
                     android:layout_height="48dp" android:id="@+id/button9" tools:layout_editor_absoluteY="473dp"
@@ -82,26 +117,33 @@
         <TableRow android:layout_height="match_parent">
             <Button
                     android:text="Button"
+                    android:textSize="20dp"
                     android:layout_width="50dp"
                     android:layout_margin="3.5dp"
                     android:layout_height="48dp" android:id="@+id/button10" tools:layout_editor_absoluteY="421dp"
                     tools:layout_editor_absoluteX="30dp"/>
             <Button
-                    android:text="Button"
+                    android:text="0"
+                    android:textSize="20dp"
                     android:layout_width="50dp"
                     android:layout_margin="3.5dp"
                     android:layout_height="48dp" android:id="@+id/button11"
                     tools:layout_editor_absoluteY="421dp" tools:layout_editor_absoluteX="88dp"/>
             <Button
                     android:text="Button"
+                    android:textSize="20dp"
                     android:layout_width="50dp"
                     android:layout_margin="3.5dp"
                     android:layout_height="48dp" android:id="@+id/button12"
                     tools:layout_editor_absoluteY="421dp" tools:layout_editor_absoluteX="146dp"/>
         </TableRow>
+
+
     </TableLayout>
+
+
     <Button
-            android:text="Calculate"
+            android:text="="
             android:layout_width="127dp"
             android:layout_height="53dp"
             android:id="@+id/button"
@@ -110,28 +152,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_bias="0.951"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintHorizontal_bias="0.852"
     />
     <TextView
-            android:text="TextView"
+            android:text="0"
             android:layout_width="408dp"
-            android:layout_height="253dp" android:id="@+id/textView"
-            android:padding="100dp"
+            android:layout_height="194dp" android:id="@+id/textView"
             android:background="@drawable/textview_background" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0"
-            app:layout_constraintHorizontal_bias="0"
-    />
-    <View
-            android:id="@+id/divider"
-            android:layout_width="6dp"
-            android:layout_height="400dp"
-            app:layout_constraintHorizontal_bias="0.7"
-            android:background="#8A2BE2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" app:layout_constraintStart_toEndOf="@+id/tableLayout"
-            app:layout_constraintEnd_toStartOf="@+id/button"/>
+            app:layout_constraintVertical_bias="0.113"
+            app:layout_constraintHorizontal_bias="0.333"
+            android:gravity="center|bottom"/>
     <TableLayout
             android:id="@+id/operands"
             android:layout_width="wrap_content"
@@ -141,59 +173,60 @@
             app:layout_constraintHorizontal_bias="0.8"
 
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintStart_toEndOf="@+id/divider"><!---->
+            app:layout_constraintLeft_toLeftOf="parent"
 
+
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            >
         <TableRow android:layout_height="match_parent">
             <Button
-                    android:text="Button"
-                    android:layout_width="38dp"
+                    android:text="DEL"
+                    android:layout_width="48dp"
                     android:layout_margin="3.5dp"
                     android:layout_height="74dp" android:id="@+id/button13" tools:layout_editor_absoluteY="340dp"
                     tools:layout_editor_absoluteX="273dp"/>
             <Button
                     android:text="Button"
-                    android:layout_width="38dp"
+                    android:layout_width="48dp"
                     android:layout_margin="3.5dp"
                     android:layout_height="74dp" android:id="@+id/button14" tools:layout_editor_absoluteY="421dp"
                     tools:layout_editor_absoluteX="273dp"/>
         </TableRow>
         <TableRow android:layout_height="match_parent">
             <Button
-                    android:text="Button"
-                    android:layout_width="38dp"
+                    android:text="+"
+                    android:layout_width="48dp"
                     android:layout_margin="3.5dp"
-                    android:layout_height="74dp" android:id="@+id/button15" tools:layout_editor_absoluteY="340dp"
+                    android:layout_height="74dp" android:id="@+id/addButton"
+                    tools:layout_editor_absoluteY="340dp"
                     tools:layout_editor_absoluteX="345dp"/>
             <Button
-                    android:text="Button"
-                    android:layout_width="38dp"
+                    android:text="-"
+                    android:layout_width="48dp"
                     android:layout_margin="3.5dp"
-                    android:layout_height="74dp" android:id="@+id/button16" tools:layout_editor_absoluteY="508dp"
+                    android:layout_height="74dp" android:id="@+id/subButton"
+                    tools:layout_editor_absoluteY="508dp"
                     tools:layout_editor_absoluteX="345dp"/>
         </TableRow>
         <TableRow android:layout_height="match_parent">
             <Button
-                    android:text="Button"
-                    android:layout_width="38dp"
+                    android:text="*"
+                    android:layout_width="48dp"
                     android:layout_margin="3.5dp"
-                    android:layout_height="74dp" android:id="@+id/button17" tools:layout_editor_absoluteY="508dp"
+                    android:layout_height="74dp"
+                    android:id="@+id/mulButton"
+                    tools:layout_editor_absoluteY="508dp"
                     tools:layout_editor_absoluteX="273dp"/>
             <Button
-                    android:text="Button"
-                    android:layout_width="38dp"
+                    android:text="/"
+                    android:layout_width="48dp"
                     android:layout_margin="3.5dp"
-                    android:layout_height="74dp" android:id="@+id/button18" tools:layout_editor_absoluteY="421dp"
-
+                    android:layout_height="74dp" android:id="@+id/divButton"
+                    tools:layout_editor_absoluteY="421dp"
                     tools:layout_editor_absoluteX="345dp"/>
         </TableRow>
     </TableLayout>
-        <Button
-                android:text="Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/button19"
-                app:layout_constraintStart_toEndOf="@+id/divider" app:layout_constraintEnd_toEndOf="@+id/button"
-                app:layout_constraintBottom_toTopOf="@+id/button" app:layout_constraintHorizontal_bias="0.68"/>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
