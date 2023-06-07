@@ -1,7 +1,9 @@
 package com.example.calculator;
 
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -42,12 +44,20 @@ public class MainActivity extends AppCompatActivity {
         Button button8 = findViewById(R.id.button2);
         Button button9 = findViewById(R.id.button1);
 
-        Button add = findViewById(R.id.addButton);
-        Button sub = findViewById(R.id.subButton);
-        Button mul = findViewById(R.id.mulButton);
-        Button div = findViewById(R.id.divButton);
+        //Buttons, for operations and stuff
+        Button add    = findViewById(R.id.addButton);
+        Button sub    = findViewById(R.id.subButton);
+        Button mul    = findViewById(R.id.mulButton);
+        Button div    = findViewById(R.id.divButton);
         Button equals = findViewById(R.id.button);
-        Button clear = findViewById(R.id.button13);
+        Button clear  = findViewById(R.id.button13);
+        Button AC     = findViewById(R.id.button14);
+
+        //onTouchListeners
+
+
+        //Below, are setOnClickListeners, yeah!!
+
 
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +139,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,6 +150,15 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     textView.setText("0");
                 }
+            }
+        });
+
+        AC.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick (View v){
+                currentDisplayingText="";
+                textView.setText("0");
             }
         });
 
@@ -151,6 +172,29 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        sub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!currentDisplayingText.equals("")) {
+                    methSub = currentDisplayingText;
+                    currentDisplayingText = "";
+                    clickedSub = true;
+                }
+            }
+        });
+
+        mul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!currentDisplayingText.equals("")) {
+                    methMul = currentDisplayingText;
+                    currentDisplayingText = "";
+                    clickedMul = true;
+                }
+            }
+        });
+
         div.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,129 +205,75 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        mul.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!currentDisplayingText.equals("")) {
-                    methMul = currentDisplayingText;
-                    currentDisplayingText = "";
-                    clickedDiv = true;
-                }
-            }
-        });
 
         equals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (clickedAdd) {
-                    if(!methAdd.equals("") && !currentDisplayingText.equals("")){
-                    result1 = Double.parseDouble(currentDisplayingText) + Double.parseDouble(methAdd);
-                    String result2=String.valueOf(result1);
-                    /*Below w, is simply the value of the last two elements in the string sequence, I am in this block
-                    trying to remove the ".0" if it is not required, as it looks not nice. 
-                    In future try using method overloading, can't do that now because, I'm overloaded myself, Ha
-                     */
-                    String w=result2.substring(result2.length()-2,result2.length());
-                    if (w.equals(".0")){
-                        textView.setText((result2.substring(0,result2.length()-2)));
+                    if (!methAdd.equals("") && !currentDisplayingText.equals("")) {
+                        result1 = Double.parseDouble(methAdd) + Double.parseDouble(currentDisplayingText);
+                        currentDisplayingText = String.valueOf(result1);
+                        textView.setText(currentDisplayingText);
+                    } else {
+                        textView.setText("Type a second number. Start over!");
                     }
-                    else{
-                        textView.setText(result2);
-                    }
-                    currentDisplayingText="";
-                    //Set clicked to False in order to indicate a restart to the system
                     clickedAdd = false;
-                    }
-                    else{
-                        textView.setText("Type a second num, Start over!");
-                    }
-
                 }
-
-
-
-                if (clickedDiv) {
-                    if(!methAdd.equals("") && !currentDisplayingText.equals("")){
-                        result1 =  Double.parseDouble(methAdd)/Double.parseDouble(currentDisplayingText);
-                        String result2=String.valueOf(result1);
-                    /*Below w, is simply the value of the last two elements in the string sequence, I am in this block
-                    trying to remove the ".0" if it is not required, as it looks not nice.
-                    In future try using method overloading, can't do that now because, I'm overloaded myself, Ha
-                     */
-                        String w=result2.substring(result2.length()-2,result2.length());
-                        if (w.equals(".0")){
-                            textView.setText((result2.substring(0,result2.length()-2)));
-                        }
-                        else{
-                            textView.setText(result2);
-                        }
-                        currentDisplayingText="";
-                        //Set clicked to False in order to indicate a restart to the system
-                        clickedDiv = false;
-                    }
-                    else{
-                        textView.setText("Type a second num, Start over!");
-                    }
-
-                }
-
-
-
-
-
-
-                if (clickedMul) {
-                    if(!methAdd.equals("") && !currentDisplayingText.equals("")){
-                        result1 = Double.parseDouble(currentDisplayingText) * Double.parseDouble(methMul);
-                        String result2=String.valueOf(result1);
-                    /*Below w, is simply the value of the last two elements in the string sequence, I am in this block
-                    trying to remove the ".0" if it is not required, as it looks not nice.
-                    In future try using method overloading, can't do that now because, I'm overloaded myself, Ha
-                     */
-                        String w=result2.substring(result2.length()-2,result2.length());
-                        if (w.equals(".0")){
-                            textView.setText((result2.substring(0,result2.length()-2)));
-                        }
-                        else{
-                            textView.setText(result2);
-                        }
-                        currentDisplayingText="";
-                        //Set clicked to False in order to indicate a restart to the system
-                        clickedMul = false;
-                    }
-                    else{
-                        textView.setText("Type a second num, Start over!");
-                    }
-
-                }
-
-
 
                 if (clickedSub) {
-                    if(!methAdd.equals("") && !currentDisplayingText.equals("")){
-                        result1 = + Double.parseDouble(methSub)-Double.parseDouble(currentDisplayingText);
-                        String result2=String.valueOf(result1);
-                    /*Below w, is simply the value of the last two elements in the string sequence, I am in this block
-                    trying to remove the ".0" if it is not required, as it looks not nice.
-                    In future try using method overloading, can't do that now because, I'm overloaded myself, Ha
-                     */
-                        String w=result2.substring(result2.length()-2,result2.length());
-                        if (w.equals(".0")){
-                            textView.setText((result2.substring(0,result2.length()-2)));
-                        }
-                        else{
-                            textView.setText(result2);
-                        }
-                        currentDisplayingText="";
-                        //Set clicked to False in order to indicate a restart to the system
-                        clickedSub = false;
+                    if (!methSub.equals("") && !currentDisplayingText.equals("")) {
+                        result1 = Double.parseDouble(methSub) - Double.parseDouble(currentDisplayingText);
+                        currentDisplayingText = String.valueOf(result1);
+                        textView.setText(currentDisplayingText);
+                    } else {
+                        textView.setText("Type a second number. Start over!");
                     }
-                    else{
-                        textView.setText("Type a second num, Start over!");
-                    }
+                    clickedSub = false;
+                }
 
+                if (clickedMul) {
+                    if (!methMul.equals("") && !currentDisplayingText.equals("")) {
+                        result1 = Double.parseDouble(methMul) * Double.parseDouble(currentDisplayingText);
+                        currentDisplayingText = String.valueOf(result1);
+                        textView.setText(currentDisplayingText);
+                    } else {
+                        textView.setText("Type a second number. Start over!");
+                    }
+                    clickedMul = false;
+                }
+
+                if (clickedDiv) {
+                    if (!methDiv.equals("") && !currentDisplayingText.equals("")) {
+                        if (Double.parseDouble(currentDisplayingText) != 0) {
+                            result1 = Double.parseDouble(methDiv) / Double.parseDouble(currentDisplayingText);
+                            currentDisplayingText = String.valueOf(result1);
+                            textView.setText(currentDisplayingText);
+                        } else {
+                            textView.setText("Cannot divide by zero!");
+                        }
+                    } else {
+                        textView.setText("Type a second number. Start over!");
+                    }
+                    clickedDiv = false;
                 }
             }
         });
+
+        add.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    // Button pressed
+                    add.getBackground().setColorFilter(getResources().getColor(R.color.button_pressed_color), PorterDuff.Mode.SRC_ATOP);
+                    add.invalidate();
+                } else if (event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL) {
+                    // Button released
+                    add.getBackground().clearColorFilter();
+                    add.invalidate();
+                }
+                return false;
+            }
+        });
+
     }
 }
