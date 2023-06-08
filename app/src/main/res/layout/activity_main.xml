@@ -118,11 +118,13 @@
         </TableRow>
         <TableRow android:layout_height="match_parent">
             <Button
-                    android:text="Button"
+                    android:text="R"
                     android:textSize="20dp"
                     android:layout_width="50dp"
                     android:layout_margin="3.5dp"
-                    android:layout_height="48dp" android:id="@+id/button10" tools:layout_editor_absoluteY="421dp"
+                    android:layout_height="48dp"
+                    android:id="@+id/resetCalc"
+                    tools:layout_editor_absoluteY="421dp"
                     tools:layout_editor_absoluteX="30dp"/>
             <Button
                     android:text="0"
@@ -132,11 +134,11 @@
                     android:layout_height="48dp" android:id="@+id/button11"
                     tools:layout_editor_absoluteY="421dp" tools:layout_editor_absoluteX="88dp"/>
             <Button
-                    android:text="Button"
-                    android:textSize="20dp"
+                    android:text="A"
+                    android:textSize="20sp"
                     android:layout_width="50dp"
                     android:layout_margin="3.5dp"
-                    android:layout_height="48dp" android:id="@+id/button12"
+                    android:layout_height="48dp" android:id="@+id/ans"
                     tools:layout_editor_absoluteY="421dp" tools:layout_editor_absoluteX="146dp"/>
         </TableRow>
 
@@ -159,7 +161,8 @@
     <TextView
             android:text="0"
             android:layout_width="408dp"
-            android:layout_height="194dp" android:id="@+id/textView"
+            android:layout_height="194dp"
+            android:id="@+id/textView"
             android:background="@drawable/textview_background" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

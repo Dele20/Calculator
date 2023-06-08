@@ -10,7 +10,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.constraintlayout.widget.ConstraintLayout;
-//TODO: Add an Ans and enable further calculation
+//TODO: Add an Ans
+//TODO: enable further calculation
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     boolean clickedSub = false;
     boolean clickedDiv = false;
     boolean clickedMul = false;
-    boolean clickedChangeColor=false;
     String display="";
+    Double answer=0.0;
 
 
     @Override
@@ -56,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         Button equals = findViewById(R.id.button);
         Button clear  = findViewById(R.id.button13);
         Button AC     = findViewById(R.id.button14);
+        Button ans    = findViewById(R.id.ans);
+        Button reset  = findViewById(R.id.resetCalc);
 
         //Button for changing calculator background
         Button buttonMode =findViewById(R.id.buttonMode);
@@ -81,15 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-        //onTouchListeners
-
-
         //Below, are setOnClickListeners, yeah!!
-
-
         button0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -243,6 +238,8 @@ public class MainActivity extends AppCompatActivity {
                 if (clickedAdd) {
                     if (!methAdd.equals("") && !currentDisplayingText.equals("")) {
                         result1 = Double.parseDouble(methAdd) + Double.parseDouble(currentDisplayingText);
+                        answer=result1;
+
                         currentDisplayingText="";
                         display = String.valueOf(result1);
 
@@ -297,6 +294,37 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        ans.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                currentDisplayingText=String.valueOf(answer);
+                textView.setText("Previous answer: "+currentDisplayingText);
+
+            }
+        }
+    );
+        reset.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+               currentDisplayingText="";
+               answer=0.0;
+               display="";
+               Double result1 = 0.0;
+               String methAdd = "";
+               String methDiv="";
+               String methMul="";
+               String methSub="";
+               boolean clickedAdd = false;
+               boolean clickedSub = false;
+               boolean clickedDiv = false;
+               boolean clickedMul = false;
+               String display="";
+               Double answer=0.0;
+               textView.setText("Your Calculator has been Reset!");
+
+            }
+        });
+
 
         /*add.setOnTouchListener(new View.OnTouchListener() {
             @Override
