@@ -1,14 +1,16 @@
 package com.example.calculator;
 
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.Typeface;
-import android.view.MotionEvent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.constraintlayout.widget.ConstraintLayout;
+//TODO: Add an Ans and enable further calculation
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     boolean clickedSub = false;
     boolean clickedDiv = false;
     boolean clickedMul = false;
+    boolean clickedChangeColor=false;
+    String display="";
 
 
     @Override
@@ -52,6 +56,33 @@ public class MainActivity extends AppCompatActivity {
         Button equals = findViewById(R.id.button);
         Button clear  = findViewById(R.id.button13);
         Button AC     = findViewById(R.id.button14);
+
+        //Button for changing calculator background
+        Button buttonMode =findViewById(R.id.buttonMode);
+        ConstraintLayout rootLayout = findViewById(R.id.rootLayout);
+
+
+        //Change background button
+        buttonMode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Drawable background = rootLayout.getBackground();
+
+                if (background instanceof ColorDrawable) {
+                    int color = ((ColorDrawable) background).getColor();
+                    if (color == getResources().getColor(R.color.black)) {
+                        rootLayout.setBackgroundColor(getResources().getColor(R.color.white));
+                    } else {
+                        rootLayout.setBackgroundColor(getResources().getColor(R.color.black));
+
+                    }}
+
+
+            }
+        });
+
+
 
         //onTouchListeners
 
@@ -212,8 +243,10 @@ public class MainActivity extends AppCompatActivity {
                 if (clickedAdd) {
                     if (!methAdd.equals("") && !currentDisplayingText.equals("")) {
                         result1 = Double.parseDouble(methAdd) + Double.parseDouble(currentDisplayingText);
-                        currentDisplayingText = String.valueOf(result1);
-                        textView.setText(currentDisplayingText);
+                        currentDisplayingText="";
+                        display = String.valueOf(result1);
+
+                        textView.setText(display);
                     } else {
                         textView.setText("Type a second number. Start over!");
                     }
@@ -223,8 +256,10 @@ public class MainActivity extends AppCompatActivity {
                 if (clickedSub) {
                     if (!methSub.equals("") && !currentDisplayingText.equals("")) {
                         result1 = Double.parseDouble(methSub) - Double.parseDouble(currentDisplayingText);
-                        currentDisplayingText = String.valueOf(result1);
-                        textView.setText(currentDisplayingText);
+                        currentDisplayingText="";
+                        display = String.valueOf(result1);
+
+                        textView.setText(display);
                     } else {
                         textView.setText("Type a second number. Start over!");
                     }
@@ -234,8 +269,10 @@ public class MainActivity extends AppCompatActivity {
                 if (clickedMul) {
                     if (!methMul.equals("") && !currentDisplayingText.equals("")) {
                         result1 = Double.parseDouble(methMul) * Double.parseDouble(currentDisplayingText);
-                        currentDisplayingText = String.valueOf(result1);
-                        textView.setText(currentDisplayingText);
+                        currentDisplayingText="";
+                        display = String.valueOf(result1);
+
+                        textView.setText(display);
                     } else {
                         textView.setText("Type a second number. Start over!");
                     }
@@ -246,8 +283,10 @@ public class MainActivity extends AppCompatActivity {
                     if (!methDiv.equals("") && !currentDisplayingText.equals("")) {
                         if (Double.parseDouble(currentDisplayingText) != 0) {
                             result1 = Double.parseDouble(methDiv) / Double.parseDouble(currentDisplayingText);
-                            currentDisplayingText = String.valueOf(result1);
-                            textView.setText(currentDisplayingText);
+                            currentDisplayingText="";
+                            display = String.valueOf(result1);
+
+                            textView.setText(display);
                         } else {
                             textView.setText("Cannot divide by zero!");
                         }
@@ -259,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        add.setOnTouchListener(new View.OnTouchListener() {
+        /*add.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -273,7 +312,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 return false;
             }
-        });
+        });*/
 
     }
 }
